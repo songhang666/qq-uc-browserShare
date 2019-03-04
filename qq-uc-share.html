@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>qq,uc浏览器唤起微信分享</title>
+  <script src="return.js"></script>
+  <script src="jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+  <button data-mshare="0">点击弹出原生分享面板</button>
+  <button data-mshare="1">点击唤起分享至朋友圈</button>
+  <button data-mshare="2">点击唤起分享至微信朋友</button>
+</body>
+<script>
+  var mshare = new mShare({
+    title: 'Lorem ipsum dolor sit.',
+    url: 'http://m.ly.com',
+    desc: '滴滴滴',
+    img: 'http://placehold.it/150x150'
+  });
+  $('button').click(function () {
+    // 1 ==> 朋友圈  2 ==> 朋友  0 ==> 直接弹出原生
+    mshare.init(+$(this).data('mshare'));
+  });
+</script>
+
+</html>
